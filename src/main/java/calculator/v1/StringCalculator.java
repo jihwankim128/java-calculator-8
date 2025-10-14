@@ -2,17 +2,29 @@ package calculator.v1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
-    private static final String DEFAULT_DELIMITER_REGEX = "[,:]";
+    private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(.)\\\\n(.*)");
+
     private final List<Long> numbers = new ArrayList<>();
 
     public StringCalculator(String expression) {
         if (expression == null || expression.isEmpty()) {
             return;
         }
-        String[] stringNumbers = expression.split(DEFAULT_DELIMITER_REGEX);
+
+        Matcher matcher = CUSTOM_DELIMITER_PATTERN.matcher(expression);
+        String delimiterRegex = "[,:]";
+        if (matcher.find()) {
+            String customDelimiter = matcher.group(1);
+            expression = matcher.group(2);
+            delimiterRegex = delimiterRegex + "|" + Pattern.quote(customDelimiter);
+        }
+
+        String[] stringNumbers = expression.split(delimiterRegex);
         for (String stringNumber : stringNumbers) {
             try {
                 long number = Long.parseLong(stringNumber.trim());
