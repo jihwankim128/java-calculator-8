@@ -11,7 +11,8 @@ public class Controller {
     public void run() {
         view.showStringInput();
         String expression = view.readStringExpression();
-        long result = 0L;
+        StringCalculator stringCalculator = new StringCalculator(expression);
+        long result = stringCalculator.sum();
         view.showResult(result);
     }
 }
