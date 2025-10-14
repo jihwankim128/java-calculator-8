@@ -1,0 +1,17 @@
+package calculator.v1;
+
+public class Controller {
+
+    private final View view;
+
+    public Controller(View view) {
+        this.view = view;
+    }
+
+    public void run() {
+        view.showStringInput();
+        String expression = view.readStringExpression();
+        long result = 0L;
+        view.showResult(result);
+    }
+}
