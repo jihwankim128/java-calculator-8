@@ -38,3 +38,7 @@ out/
 package.json
 package-lock.json
 node_modules/
+
+
+checkstyle.sh
+style/
