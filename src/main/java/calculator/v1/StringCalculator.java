@@ -27,16 +27,24 @@ public class StringCalculator {
 
         String[] stringNumbers = expression.split(delimiterRegex, -1);
         for (String stringNumber : stringNumbers) {
-            try {
-                BigInteger number = new BigInteger(stringNumber);
-                if (number.compareTo(BigInteger.ZERO) <= 0) {
-                    throw new IllegalArgumentException();
-                }
+            BigInteger number = parseNumber(stringNumber);
+            numbers.add(number);
+        }
+    }
 
-                numbers.add(number);
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException();
-            }
+    private static void validatePositive(BigInteger number) {
+        if (number.compareTo(BigInteger.ZERO) <= 0) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private BigInteger parseNumber(String stringNumber) {
+        try {
+            BigInteger number = new BigInteger(stringNumber);
+            validatePositive(number);
+            return number;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException();
         }
     }
 
