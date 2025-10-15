@@ -1,5 +1,6 @@
 package calculator.v1;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -9,7 +10,7 @@ public class StringCalculator {
 
     private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(.)\\\\n(.*)");
 
-    private final List<Long> numbers = new ArrayList<>();
+    private final List<BigInteger> numbers = new ArrayList<>();
 
     public StringCalculator(String expression) {
         if (expression == null || expression.isEmpty()) {
@@ -27,8 +28,8 @@ public class StringCalculator {
         String[] stringNumbers = expression.split(delimiterRegex, -1);
         for (String stringNumber : stringNumbers) {
             try {
-                long number = Long.parseLong(stringNumber);
-                if (number <= 0) {
+                BigInteger number = new BigInteger(stringNumber);
+                if (number.compareTo(BigInteger.ZERO) <= 0) {
                     throw new IllegalArgumentException();
                 }
 
@@ -39,10 +40,10 @@ public class StringCalculator {
         }
     }
 
-    public long sum() {
-        long sum = 0;
-        for (Long number : numbers) {
-            sum += number;
+    public BigInteger sum() {
+        BigInteger sum = BigInteger.ZERO;
+        for (BigInteger number : numbers) {
+            sum = sum.add(number);
         }
         return sum;
     }

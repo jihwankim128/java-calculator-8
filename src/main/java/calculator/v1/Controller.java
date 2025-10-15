@@ -1,5 +1,7 @@
 package calculator.v1;
 
+import java.math.BigInteger;
+
 public class Controller {
 
     private final View view;
@@ -12,7 +14,7 @@ public class Controller {
         view.showStringInput();
         String expression = view.readStringExpression();
         StringCalculator stringCalculator = new StringCalculator(expression);
-        long result = stringCalculator.sum();
+        BigInteger result = stringCalculator.sum();
         view.showResult(result);
     }
 }
