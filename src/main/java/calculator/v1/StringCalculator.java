@@ -24,10 +24,10 @@ public class StringCalculator {
             delimiterRegex = delimiterRegex + "|" + Pattern.quote(customDelimiter);
         }
 
-        String[] stringNumbers = expression.split(delimiterRegex);
+        String[] stringNumbers = expression.split(delimiterRegex, -1);
         for (String stringNumber : stringNumbers) {
             try {
-                long number = Long.parseLong(stringNumber.trim());
+                long number = Long.parseLong(stringNumber);
                 if (number <= 0) {
                     throw new IllegalArgumentException();
                 }
