@@ -13,8 +13,7 @@ public class PositiveNumber {
         this.value = value;
     }
 
-    public static PositiveNumber from(String value) {
-        BigInteger number = NumberParser.parse(value);
+    public static PositiveNumber of(BigInteger number) {
         return new PositiveNumber(number);
     }
 
