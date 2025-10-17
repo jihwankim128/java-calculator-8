@@ -1,14 +1,14 @@
 package calculator;
 
-import calculator.application.Controller;
-import calculator.ui.View;
+import calculator.application.CalculatorController;
+import calculator.ui.CalculatorView;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
-        View view = new View();
-        Controller controller = new Controller(view);
-        controller.run();
+        CalculatorView calculatorView = new CalculatorView();
+        CalculatorController calculatorController = new CalculatorController(calculatorView);
+        calculatorController.run();
 
         Console.close();
     }

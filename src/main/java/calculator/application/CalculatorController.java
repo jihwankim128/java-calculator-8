@@ -5,25 +5,25 @@ import calculator.domain.DelimiterTokenizer;
 import calculator.domain.NumberParser;
 import calculator.domain.parser.DefaultNumberParser;
 import calculator.domain.toknizer.DefaultDelimiterTokenizer;
-import calculator.ui.View;
+import calculator.ui.CalculatorView;
 import java.math.BigInteger;
 
-public class Controller {
+public class CalculatorController {
 
     private final Calculator calculator;
-    private final View view;
+    private final CalculatorView calculatorView;
 
-    public Controller(View view) {
+    public CalculatorController(CalculatorView calculatorView) {
         DelimiterTokenizer delimiterTokenizer = new DefaultDelimiterTokenizer();
         NumberParser numberParser = new DefaultNumberParser();
         this.calculator = new Calculator(delimiterTokenizer, numberParser);
-        this.view = view;
+        this.calculatorView = calculatorView;
     }
 
     public void run() {
-        view.showStringInput();
-        String expression = view.readStringExpression();
+        calculatorView.printInputPrompt();
+        String expression = calculatorView.readExpression();
         BigInteger result = calculator.calculate(expression);
-        view.showResult(result);
+        calculatorView.printResult(result);
     }
 }
