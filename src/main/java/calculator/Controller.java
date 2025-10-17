@@ -13,8 +13,8 @@ public class Controller {
     public void run() {
         view.showStringInput();
         String expression = view.readStringExpression();
-        StringCalculator stringCalculator = new StringCalculator(expression);
-        BigInteger result = stringCalculator.sum();
+        Calculator calculator = new Calculator(expression);
+        BigInteger result = calculator.calculate();
         view.showResult(result);
     }
 }
