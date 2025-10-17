@@ -13,13 +13,18 @@ public class Calculator {
     }
 
     public BigInteger calculate(String expression) {
+        String[] tokens = delimiterTokenizer.tokenize(expression);
+        Numbers numbers = parseNumbers(tokens);
+        return numbers.sum();
+    }
+
+    private Numbers parseNumbers(String[] tokens) {
         Numbers numbers = new Numbers();
-        String[] values = delimiterTokenizer.tokenize(expression);
-        for (String value : values) {
-            BigInteger number = numberParser.parse(value);
+        for (String token : tokens) {
+            BigInteger number = numberParser.parse(token);
             PositiveNumber positiveNumber = PositiveNumber.of(number);
             numbers.add(positiveNumber);
         }
-        return numbers.sum();
+        return numbers;
     }
 }
