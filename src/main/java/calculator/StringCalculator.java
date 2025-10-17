@@ -1,15 +1,12 @@
 package calculator;
 
+import static calculator.DelimiterTokenizer.tokenize;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class StringCalculator {
-
-    private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("//(.)\\\\n(.*)");
-    private static final String DEFAULT_DELIMITER_REGEX = "[,:]";
 
     private final List<BigInteger> numbers = new ArrayList<>();
 
@@ -18,22 +15,11 @@ public class StringCalculator {
             return;
         }
 
-        String[] stringNumbers = extractNumbers(expression);
+        String[] stringNumbers = tokenize(expression);
         for (String stringNumber : stringNumbers) {
             BigInteger number = parseNumber(stringNumber);
             numbers.add(number);
         }
-    }
-
-    private static String[] extractNumbers(String expression) {
-        Matcher matcher = CUSTOM_DELIMITER_PATTERN.matcher(expression);
-        if (matcher.find()) {
-            String customDelimiter = matcher.group(1);
-            String pureExpression = matcher.group(2);
-            String delimiterRegex = DEFAULT_DELIMITER_REGEX + "|" + Pattern.quote(customDelimiter);
-            return pureExpression.split(delimiterRegex, -1);
-        }
-        return expression.split(DEFAULT_DELIMITER_REGEX, -1);
     }
 
     private static void validatePositive(BigInteger number) {
