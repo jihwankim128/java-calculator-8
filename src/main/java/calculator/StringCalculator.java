@@ -1,6 +1,7 @@
 package calculator;
 
 import static calculator.DelimiterTokenizer.tokenize;
+import static calculator.NumberParser.parse;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -17,23 +18,14 @@ public class StringCalculator {
 
         String[] stringNumbers = tokenize(expression);
         for (String stringNumber : stringNumbers) {
-            BigInteger number = parseNumber(stringNumber);
+            BigInteger number = parse(stringNumber);
+            validatePositive(number);
             numbers.add(number);
         }
     }
 
     private static void validatePositive(BigInteger number) {
         if (number.compareTo(BigInteger.ZERO) <= 0) {
-            throw new IllegalArgumentException();
-        }
-    }
-
-    private BigInteger parseNumber(String stringNumber) {
-        try {
-            BigInteger number = new BigInteger(stringNumber);
-            validatePositive(number);
-            return number;
-        } catch (NumberFormatException e) {
             throw new IllegalArgumentException();
         }
     }
