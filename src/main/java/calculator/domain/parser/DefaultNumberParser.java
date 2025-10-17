@@ -1,5 +1,6 @@
-package calculator;
+package calculator.domain.parser;
 
+import calculator.domain.NumberParser;
 import java.math.BigInteger;
 
 public class DefaultNumberParser implements NumberParser {

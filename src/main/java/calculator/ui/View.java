@@ -1,4 +1,4 @@
-package calculator;
+package calculator.ui;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.math.BigInteger;
