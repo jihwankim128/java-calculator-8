@@ -1,7 +1,5 @@
 package calculator;
 
-import calculator.v1.Controller;
-import calculator.v1.View;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
