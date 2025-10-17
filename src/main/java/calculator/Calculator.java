@@ -13,10 +13,6 @@ public class Calculator {
     }
 
     public BigInteger calculate(String expression) {
-        if (expression == null || expression.isEmpty()) {
-            return BigInteger.ZERO;
-        }
-
         Numbers numbers = new Numbers();
         String[] values = delimiterTokenizer.tokenize(expression);
         for (String value : values) {
