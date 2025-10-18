@@ -2,12 +2,12 @@ package calculator.domain;
 
 import java.math.BigInteger;
 
-public class Calculator {
+public class TextCalculator {
 
     private final DelimiterTokenizer delimiterTokenizer;
     private final NumberParser numberParser;
 
-    public Calculator(DelimiterTokenizer delimiterTokenizer, NumberParser numberParser) {
+    public TextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser numberParser) {
         this.delimiterTokenizer = delimiterTokenizer;
         this.numberParser = numberParser;
     }
