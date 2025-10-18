@@ -2,7 +2,7 @@ package calculator.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import calculator.stub.DelimiterTokenizerStub;
+import calculator.fixture.stub.DelimiterTokenizerStub;
 import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 

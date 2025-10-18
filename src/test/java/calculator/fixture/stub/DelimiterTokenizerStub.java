@@ -1,4 +1,4 @@
-package calculator.stub;
+package calculator.fixture.stub;
 
 import calculator.domain.DelimiterTokenizer;
 
