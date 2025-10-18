@@ -1,7 +1,13 @@
 package calculator.domain;
 
-@FunctionalInterface
-public interface DelimiterTokenizer {
+public abstract class DelimiterTokenizer {
 
-    String[] tokenize(String expression);
+    public String[] tokenize(String expression) {
+        if (expression == null || expression.isEmpty()) {
+            return new String[0];
+        }
+        return parseExpression(expression);
+    }
+
+    protected abstract String[] parseExpression(String expression);
 }
