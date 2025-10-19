@@ -1,15 +1,11 @@
 package calculator.domain;
 
-import java.math.BigInteger;
-
-public class TextCalculator {
+public abstract class TextCalculator {
 
     private final DelimiterTokenizer delimiterTokenizer;
-    private final NumberParser numberParser;
 
-    public TextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser numberParser) {
+    public TextCalculator(DelimiterTokenizer delimiterTokenizer) {
         this.delimiterTokenizer = delimiterTokenizer;
-        this.numberParser = numberParser;
     }
 
     public Number calculate(String expression) {
@@ -18,13 +14,5 @@ public class TextCalculator {
         return numbers.sum();
     }
 
-    private Numbers parseNumbers(String[] tokens) {
-        Numbers numbers = new Numbers();
-        for (String token : tokens) {
-            BigInteger number = numberParser.parse(token);
-            PositiveNumber positiveNumber = PositiveNumber.of(number);
-            numbers.add(positiveNumber);
-        }
-        return numbers;
-    }
+    protected abstract Numbers parseNumbers(String[] tokens);
 }

@@ -10,7 +10,7 @@ class TextCalculatorTest {
 
     DelimiterTokenizer delimiterTokenizerStub = new DelimiterTokenizerStub();
     NumberParser numberParserStub = value -> BigInteger.TEN;
-    TextCalculator textCalculator = new TextCalculator(delimiterTokenizerStub, numberParserStub);
+    TextCalculator textCalculator = new DefaultTextCalculator(delimiterTokenizerStub, numberParserStub);
 
     @Test
     void 표현식이_주어졌을_때_계산처리_시_토큰화와_파싱_과정을_거치고_계산_결과를_반환한다() {
