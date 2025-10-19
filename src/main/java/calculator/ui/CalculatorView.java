@@ -1,7 +1,6 @@
 package calculator.ui;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.math.BigInteger;
 
 public class CalculatorView {
     public void printInputPrompt() {
@@ -12,7 +11,7 @@ public class CalculatorView {
         return Console.readLine();
     }
 
-    public void printResult(BigInteger result) {
+    public void printResult(Number result) {
         System.out.println("결과 : " + result);
     }
 }

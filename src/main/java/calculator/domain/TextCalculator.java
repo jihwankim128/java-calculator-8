@@ -12,7 +12,7 @@ public class TextCalculator {
         this.numberParser = numberParser;
     }
 
-    public BigInteger calculate(String expression) {
+    public Number calculate(String expression) {
         String[] tokens = delimiterTokenizer.tokenize(expression);
         Numbers numbers = parseNumbers(tokens);
         return numbers.sum();

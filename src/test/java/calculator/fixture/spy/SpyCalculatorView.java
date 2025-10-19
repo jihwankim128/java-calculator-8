@@ -6,7 +6,6 @@ import static calculator.fixture.CallName.VIEW_READ_EXPRESSION;
 
 import calculator.fixture.ControllerRecorder;
 import calculator.ui.CalculatorView;
-import java.math.BigInteger;
 
 public class SpyCalculatorView extends CalculatorView {
 
@@ -28,7 +27,7 @@ public class SpyCalculatorView extends CalculatorView {
     }
 
     @Override
-    public void printResult(BigInteger result) {
+    public void printResult(Number result) {
         recorder.record(VIEW_PRINT_RESULT);
     }
 }

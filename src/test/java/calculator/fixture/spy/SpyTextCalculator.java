@@ -6,7 +6,6 @@ import calculator.domain.DelimiterTokenizer;
 import calculator.domain.NumberParser;
 import calculator.domain.TextCalculator;
 import calculator.fixture.ControllerRecorder;
-import java.math.BigInteger;
 
 public class SpyTextCalculator extends TextCalculator {
 
@@ -18,7 +17,7 @@ public class SpyTextCalculator extends TextCalculator {
     }
     
     @Override
-    public BigInteger calculate(String expression) {
+    public Number calculate(String expression) {
         recorder.record(CALCULATOR_CALCULATE);
         return super.calculate(expression);
     }

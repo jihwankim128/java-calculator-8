@@ -18,7 +18,7 @@ class TextCalculatorTest {
         String expression = "mockExpression";
 
         // when
-        BigInteger result = textCalculator.calculate(expression);
+        Number result = textCalculator.calculate(expression);
 
         // then
         assertThat(result).isEqualTo(BigInteger.valueOf(30));

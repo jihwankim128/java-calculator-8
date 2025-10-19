@@ -2,7 +2,6 @@ package calculator.application;
 
 import calculator.domain.TextCalculator;
 import calculator.ui.CalculatorView;
-import java.math.BigInteger;
 
 public class CalculatorController {
 
@@ -20,7 +19,7 @@ public class CalculatorController {
         calculatorView.printInputPrompt();
         String expression = calculatorView.readExpression();
 
-        BigInteger result = textCalculator.calculate(expression);
+        Number result = textCalculator.calculate(expression);
         calculatorView.printResult(result);
     }
 }
