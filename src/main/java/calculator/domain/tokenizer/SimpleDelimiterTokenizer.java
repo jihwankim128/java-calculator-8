@@ -1,4 +1,4 @@
-package calculator.domain.toknizer;
+package calculator.domain.tokenizer;
 
 import calculator.domain.DelimiterTokenizer;
 import java.util.regex.Matcher;

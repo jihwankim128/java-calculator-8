@@ -1,4 +1,4 @@
-package calculator.domain.toknizer;
+package calculator.domain.tokenizer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
