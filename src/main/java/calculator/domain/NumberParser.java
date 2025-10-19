@@ -1,9 +1,7 @@
 package calculator.domain;
 
-import java.math.BigInteger;
-
 @FunctionalInterface
-public interface NumberParser {
+public interface NumberParser<T extends Number> {
 
-    BigInteger parse(String value);
+    T parse(String value);
 }

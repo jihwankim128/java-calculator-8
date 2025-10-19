@@ -3,7 +3,7 @@ package calculator.domain.parser;
 import calculator.domain.NumberParser;
 import java.math.BigInteger;
 
-public class TextNumberParser implements NumberParser {
+public class TextBigNumberParser implements NumberParser<BigInteger> {
 
     public BigInteger parse(String value) {
         try {

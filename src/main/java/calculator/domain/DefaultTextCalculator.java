@@ -4,9 +4,9 @@ import java.math.BigInteger;
 
 public class DefaultTextCalculator extends TextCalculator {
 
-    private final NumberParser numberParser;
+    private final NumberParser<BigInteger> numberParser;
 
-    public DefaultTextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser numberParser) {
+    public DefaultTextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser<BigInteger> numberParser) {
         super(delimiterTokenizer);
         this.numberParser = numberParser;
     }

@@ -7,9 +7,9 @@ import calculator.domain.NumberParser;
 import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 
-class TextNumberParserTest {
+class TextBigNumberParserTest {
 
-    private final NumberParser numberParser = new TextNumberParser();
+    private final NumberParser<BigInteger> numberParser = new TextBigNumberParser();
     
     @Test
     void 문자열_숫자가_주어지면_큰_숫자로_타입으로_변환한다() {
