@@ -1,6 +1,8 @@
 package calculator.domain;
 
-public abstract class TextCalculator<T extends Number & Comparable<T>> {
+import calculator.domain.calculator.Numbers;
+
+public abstract class TextCalculator<T extends Number & Comparable<T>> implements Calculator {
 
     protected final NumberParser<T> numberParser;
     private final DelimiterTokenizer delimiterTokenizer;
@@ -10,6 +12,7 @@ public abstract class TextCalculator<T extends Number & Comparable<T>> {
         this.numberParser = numberParser;
     }
 
+    @Override
     public Number calculate(String expression) {
         String[] tokens = delimiterTokenizer.tokenize(expression);
         Numbers<T> numbers = parseNumbers(tokens);

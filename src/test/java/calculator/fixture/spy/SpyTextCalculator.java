@@ -2,13 +2,13 @@ package calculator.fixture.spy;
 
 import static calculator.fixture.CallName.CALCULATOR_CALCULATE;
 
-import calculator.domain.DefaultTextCalculator;
 import calculator.domain.DelimiterTokenizer;
 import calculator.domain.NumberParser;
+import calculator.domain.calculator.BigNumberTextCalculator;
 import calculator.fixture.ControllerRecorder;
 import java.math.BigInteger;
 
-public class SpyTextCalculator extends DefaultTextCalculator {
+public class SpyTextCalculator extends BigNumberTextCalculator {
 
     private final ControllerRecorder recorder;
     

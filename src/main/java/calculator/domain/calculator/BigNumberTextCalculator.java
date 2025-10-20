@@ -1,10 +1,13 @@
-package calculator.domain;
+package calculator.domain.calculator;
 
+import calculator.domain.DelimiterTokenizer;
+import calculator.domain.NumberParser;
+import calculator.domain.TextCalculator;
 import java.math.BigInteger;
 
-public class DefaultTextCalculator extends TextCalculator<BigInteger> {
+public class BigNumberTextCalculator extends TextCalculator<BigInteger> {
 
-    public DefaultTextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser<BigInteger> numberParser) {
+    public BigNumberTextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser<BigInteger> numberParser) {
         super(delimiterTokenizer, numberParser);
     }
 

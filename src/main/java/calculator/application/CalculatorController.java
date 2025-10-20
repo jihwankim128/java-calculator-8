@@ -1,6 +1,6 @@
 package calculator.application;
 
-import calculator.domain.TextCalculator;
+import calculator.domain.Calculator;
 import calculator.ui.CalculatorView;
 
 public class CalculatorController {
@@ -14,7 +14,7 @@ public class CalculatorController {
     }
 
     public void run() {
-        TextCalculator textCalculator = calculatorFactory.getTextCalculator();
+        Calculator textCalculator = calculatorFactory.getTextCalculator();
 
         calculatorView.printInputPrompt();
         String expression = calculatorView.readExpression();

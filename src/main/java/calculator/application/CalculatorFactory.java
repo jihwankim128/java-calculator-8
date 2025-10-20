@@ -1,14 +1,14 @@
 package calculator.application;
 
-import calculator.domain.DefaultTextCalculator;
-import calculator.domain.TextCalculator;
+import calculator.domain.Calculator;
+import calculator.domain.calculator.BigNumberTextCalculator;
 import calculator.domain.parser.TextBigNumberParser;
 import calculator.domain.tokenizer.SimpleDelimiterTokenizer;
 
 public class CalculatorFactory {
 
-    public TextCalculator getTextCalculator() {
-        return new DefaultTextCalculator(
+    public Calculator getTextCalculator() {
+        return new BigNumberTextCalculator(
                 new SimpleDelimiterTokenizer(),
                 new TextBigNumberParser()
         );
