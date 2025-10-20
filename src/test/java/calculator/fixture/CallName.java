@@ -1,7 +1,6 @@
 package calculator.fixture;
 
 public enum CallName {
-    FACTORY_GET_TEXT_CALCULATOR,
     VIEW_PRINT_INPUT_PROMPT,
     VIEW_READ_EXPRESSION,
     CALCULATOR_CALCULATE,

@@ -5,17 +5,15 @@ import calculator.ui.CalculatorView;
 
 public class CalculatorController {
 
-    private final CalculatorFactory calculatorFactory;
+    private final Calculator textCalculator;
     private final CalculatorView calculatorView;
 
-    public CalculatorController(CalculatorView calculatorView, CalculatorFactory calculatorFactory) {
-        this.calculatorFactory = calculatorFactory;
+    public CalculatorController(CalculatorView calculatorView, Calculator textCalculator) {
+        this.textCalculator = textCalculator;
         this.calculatorView = calculatorView;
     }
 
     public void run() {
-        Calculator textCalculator = calculatorFactory.getTextCalculator();
-
         calculatorView.printInputPrompt();
         String expression = calculatorView.readExpression();
 

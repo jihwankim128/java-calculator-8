@@ -1,18 +1,28 @@
 package calculator;
 
 import calculator.application.CalculatorController;
-import calculator.application.CalculatorFactory;
+import calculator.domain.Calculator;
+import calculator.domain.calculator.BigNumberTextCalculator;
+import calculator.domain.parser.TextBigNumberParser;
+import calculator.domain.tokenizer.SimpleDelimiterTokenizer;
 import calculator.ui.CalculatorView;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
         CalculatorView calculatorView = new CalculatorView();
-        CalculatorFactory calculatorFactory = new CalculatorFactory();
-        CalculatorController calculatorController = new CalculatorController(calculatorView, calculatorFactory);
+        Calculator textCalculator = getTextCalculator();
+        CalculatorController calculatorController = new CalculatorController(calculatorView, textCalculator);
 
         calculatorController.run();
 
         Console.close();
+    }
+
+    private static BigNumberTextCalculator getTextCalculator() {
+        return new BigNumberTextCalculator(
+                new SimpleDelimiterTokenizer(),
+                new TextBigNumberParser()
+        );
     }
 }
