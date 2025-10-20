@@ -1,18 +1,21 @@
 package calculator.domain;
 
-public abstract class TextCalculator {
+public abstract class TextCalculator<T extends Number & Comparable<T>> {
 
+    protected final NumberParser<T> numberParser;
     private final DelimiterTokenizer delimiterTokenizer;
 
-    public TextCalculator(DelimiterTokenizer delimiterTokenizer) {
+    public TextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser<T> numberParser) {
         this.delimiterTokenizer = delimiterTokenizer;
+        this.numberParser = numberParser;
     }
 
     public Number calculate(String expression) {
         String[] tokens = delimiterTokenizer.tokenize(expression);
-        Numbers numbers = parseNumbers(tokens);
-        return numbers.sum();
+        Numbers<T> numbers = parseNumbers(tokens);
+        return sum(numbers);
     }
 
-    protected abstract Numbers parseNumbers(String[] tokens);
+    protected abstract Numbers<T> parseNumbers(String[] tokens);
+    protected abstract T sum(Numbers<T> numbers);
 }

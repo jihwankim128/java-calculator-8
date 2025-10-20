@@ -6,12 +6,17 @@ import calculator.domain.DefaultTextCalculator;
 import calculator.domain.DelimiterTokenizer;
 import calculator.domain.NumberParser;
 import calculator.fixture.ControllerRecorder;
+import java.math.BigInteger;
 
 public class SpyTextCalculator extends DefaultTextCalculator {
 
     private final ControllerRecorder recorder;
     
-    public SpyTextCalculator(ControllerRecorder recorder, DelimiterTokenizer tokenizer, NumberParser parser) {
+    public SpyTextCalculator(
+            ControllerRecorder recorder,
+            DelimiterTokenizer tokenizer,
+            NumberParser<BigInteger> parser
+    ) {
         super(tokenizer, parser);
         this.recorder = recorder;
     }

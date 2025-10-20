@@ -2,23 +2,25 @@ package calculator.domain;
 
 import java.math.BigInteger;
 
-public class DefaultTextCalculator extends TextCalculator {
-
-    private final NumberParser<BigInteger> numberParser;
+public class DefaultTextCalculator extends TextCalculator<BigInteger> {
 
     public DefaultTextCalculator(DelimiterTokenizer delimiterTokenizer, NumberParser<BigInteger> numberParser) {
-        super(delimiterTokenizer);
-        this.numberParser = numberParser;
+        super(delimiterTokenizer, numberParser);
     }
 
     @Override
-    protected Numbers parseNumbers(String[] tokens) {
-        Numbers numbers = new Numbers();
+    protected Numbers<BigInteger> parseNumbers(String[] tokens) {
+        Numbers<BigInteger> numbers = new Numbers<>();
         for (String token : tokens) {
             BigInteger number = numberParser.parse(token);
-            PositiveNumber positiveNumber = PositiveNumber.of(number);
+            PositiveNumber<BigInteger> positiveNumber = PositiveNumber.of(number);
             numbers.add(positiveNumber);
         }
         return numbers;
+    }
+
+    @Override
+    protected BigInteger sum(Numbers<BigInteger> numbers) {
+        return numbers.sum(BigInteger.ZERO, BigInteger::add);
     }
 }

@@ -19,10 +19,10 @@ public class SpyCalculatorFactory extends CalculatorFactory {
     }
     
     @Override
-    public TextCalculator getTextCalculator() {
+    public TextCalculator<BigInteger> getTextCalculator() {
         recorder.record(FACTORY_GET_TEXT_CALCULATOR);
         DelimiterTokenizer tokenizer = new DelimiterTokenizerStub();
-        NumberParser parser = value -> BigInteger.TEN;
+        NumberParser<BigInteger> parser = value -> BigInteger.TEN;
         return new SpyTextCalculator(recorder, tokenizer, parser);
     }
 }
